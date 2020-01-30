@@ -73,7 +73,7 @@ read2(fullFileName).then((fileContent)=>{
 
 
 // 使用 async / await
-async function readFile(path) {
+async function read3(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', function (err, data) {
       if (err) {
@@ -87,13 +87,13 @@ async function readFile(path) {
 
 async function getFileContent(fullFileName){
   try{
-    const aFileContent = await readFile(fullFileName);
+    const aFileContent = await read3(fullFileName);
     const bFullFileName = path.resolve(__dirname, aFileContent.nextFile);
 
-    const bFileContent = await readFile(bFullFileName);
+    const bFileContent = await read3(bFullFileName);
     const cFullFileName = path.resolve(__dirname, bFileContent.nextFile);
 
-    const cFileContent = await readFile(cFullFileName);
+    const cFileContent = await read3(cFullFileName);
 
     console.log(cFileContent);
 
